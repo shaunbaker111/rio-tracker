@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rio Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Rio Tracker</h1>
+    </header>
+
+    <main>
+      <section class="info">
+        <div><strong>Lat:</strong> <span id="lat">–</span></div>
+        <div><strong>Lon:</strong> <span id="lon">–</span></div>
+        <div><strong>Battery:</strong> <span id="battery">–</span>%</div>
+        <div><strong>Signal:</strong> <span id="rssi">–</span></div>
+        <div><strong>Last update:</strong> <span id="timestamp">–</span></div>
+      </section>
+
+      <section id="map"></section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js").catch(() => {});
+      }
+    </script>
+  </body>
+</html>
